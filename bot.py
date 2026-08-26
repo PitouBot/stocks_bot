@@ -3,6 +3,7 @@ import logging
 from aiogram import Bot, Dispatcher
 from config import TOKEN
 from handlers import start, help, admin, echo
+from database import init_db
 
 logging.basicConfig(level=logging.INFO)
 

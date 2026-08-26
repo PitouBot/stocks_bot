@@ -48,3 +48,9 @@ git push -u origin main         # устанавливает связь межд
 Settings -> General -> Default branch       # меняем ветку
 
 git push origin --delete master    # удаляем если надо
+
+
+(Чтобы Git всегда создавал новые локальные репозитории с веткой main, нужно изменить всего одну глобальную настройку.)
+меняем: # git config --global init.defaultBranch main
+проверка: #git config --global --get init.defaultBranch
+если main то всё ОК!

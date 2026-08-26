@@ -1,1 +1,1 @@
-from . import start, help, admin, echo
+from . import start, stocks
