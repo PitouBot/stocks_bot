@@ -1,0 +1,50 @@
+📦 Как использовать шаблон для нового бота
+1. Скопируй папку шаблона
+bash
+cp -r ~/Рабочий\ стол/bot_template ~/Рабочий\ стол/имя_нового_бота
+2. Перейди в новую папку
+bash
+cd ~/Рабочий\ стол/имя_нового_бота
+3. Удали старый .git (если есть)
+bash
+rm -rf .git
+4. Создай нового бота у @BotFather, получи токен
+5. Вставь токен и свой ID в .env
+env
+TOKEN=твой_токен
+ADMINS=твой_telegram_id
+6. Создай и активируй виртуальное окружение
+bash
+python3 -m venv venv_bot
+source venv_bot/bin/activate
+7. Установи зависимости
+bash
+pip install -r requirements.txt
+8. Запусти бота
+bash
+python bot.py
+
+9. Инициализаци гит
+git init
+git add .
+git commit -m '1st comment'
+
+
+10. Добавление и связка с GH
+Создаем новый репозитори на ГХ и копируем ссылку на него
+git remote add origin https://github.com/ваш-логин/my-project.git
+git push -u origin master   |OR|   git push -u origin main
+
+Все следующие разы (много раз):
+git add .
+git commit -m "обновление"
+git push
+
+11. Если надо поменять ветку по умолчанию 
+git branch      # показывает ветку по умолчанию
+git branch -m master main       # переименование
+git push -u origin main         # устанавливает связь между локальной веткой main и удалённой main на GitHub
+
+Settings -> General -> Default branch       # меняем ветку
+
+git push origin --delete master    # удаляем если надо
