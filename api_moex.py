@@ -4,7 +4,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-async def get_stock_price(session: aiohttp.ClientSession, ticker: str):
+async def get_stock_price(ticker: str, session: aiohttp.ClientSession):
     """Асинхронно получает текущую цену акции с MOEX."""
 
     url = f"https://iss.moex.com/iss/engines/stock/markets/shares/boards/tqbr/securities/{ticker}.json"
@@ -30,9 +30,6 @@ async def get_stock_price(session: aiohttp.ClientSession, ticker: str):
 
 async def get_all_prices(tickers: list, session: aiohttp.ClientSession):
     """Асинхронно получает цены для списка тикеров."""
-    
-    if not tickers:
-        return {}
     
     tasks = [get_stock_price(session, ticker) for ticker in tickers]
     results = await asyncio.gather(*tasks)
